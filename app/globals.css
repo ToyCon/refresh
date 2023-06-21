@@ -50,3 +50,7 @@ button {
   color: grey;
   margin : 5px 0px;
 } 
+
+a {
+  text-decoration: none;
+}

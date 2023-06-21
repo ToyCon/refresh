@@ -16,7 +16,8 @@ export default async function List() {
               <Link href={`/detail/${e._id}`}>
                 <h4>{result[i].title}</h4>
               </Link>
-              <DetailLink/>
+              <Link href={`/edit/${e._id}`}>글 수정하기</Link>
+              {/* <DetailLink/> */}
               <p>1월 1일</p>
             </div>
           )

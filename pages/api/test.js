@@ -19,4 +19,5 @@ export default function handler(req, res) {
     return res.status(200).json(serverTime.toString());
   }
   // 3. 글 발행기능 완성해오기
+  ///write/page.js에서 완성
 }

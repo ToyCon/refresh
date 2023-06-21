@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
           <Link href="/">홈</Link>
           <Link href="/list">게시판</Link>
           <Link href="/write">글작성</Link>
+          <Link href="/join">회원가입</Link>
         </div>
         <main>{children}</main>
       </body>
