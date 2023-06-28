@@ -1,5 +1,5 @@
 import { connectDB } from "@/util/database"
-import Link from 'next/link'
+// import Link from 'next/link'
 import ListItem from "./ListItem";
 // import DetailLink from "./DetailLink";
 

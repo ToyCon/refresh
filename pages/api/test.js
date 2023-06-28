@@ -1,5 +1,7 @@
 export default function handler(req, res) {
-  
+  // console.log(req.query);//query string 방식 확인하기
+  // return res.status(200).json('요청받음');
+
   if(req.method === "POST") {
     console.log('/api/test에서 실행합니다');
     console.table(req.body.title);

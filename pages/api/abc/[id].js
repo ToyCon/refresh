@@ -2,19 +2,14 @@ import { connectDB } from "@/util/database"
 import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
-  console.log('/api/post/delete.js에서 실행합니다');
-  console.log('**');
-  console.log(req.body);
+  // url 파라미터 문법으로 삭제기능 구현하기 위해서 만든 컴포넌트
+  console.log('/api/abc/[id].js에서 실행합니다');
+  console.log(req.query);
 
-  if(req.method === "DELETE") {
-
-    if(!req.body) {
-      return res.status(500).json('글 id가 포함되어 있지 않습니다');  
-    }
-    
+  if(req.query.id) {
     const db = (await connectDB).db('board');
     let result = await db.collection('post').deleteOne(
-      {_id: new ObjectId(req.body)}
+      {_id: new ObjectId(req.query.id)}
     );
     console.log(result);
 
@@ -23,9 +18,7 @@ export default async function handler(req, res) {
     } else {
       return res.status(500).err('글을 삭제할 수 없습니다');
     }
-    
   } else {
     return res.status(400);
   }
-    
 }

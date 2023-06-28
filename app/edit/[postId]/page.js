@@ -3,9 +3,10 @@ import { ObjectId } from "mongodb";
 
 export default async function Edit(props) {
 
+  console.log(props.body);
   const db = (await connectDB).db('board');
   let result = await db.collection('post').findOne({_id : new ObjectId(props.params.postId)});
-  console.log(result);
+  // console.log(result);
 
   return (
     <div className="p-20">
