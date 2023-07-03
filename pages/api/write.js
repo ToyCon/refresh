@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       insertOne({title: req.body.title, content: req.body.content});
     console.log(result);
 
-    if(result) {
+    if(result.acknowledged) {
       //return res.status(200).json('작성이 완료되었습니다');
       return res.redirect(302, '/list');
     } else {
