@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'refresh',
-  description: 'Nextjs Project, by ToyCon',
+  description: 'Nextjs Project by ToyCon',
 }
 
 export default function RootLayout({ children }) {
