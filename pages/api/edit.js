@@ -1,10 +1,15 @@
 import { connectDB } from "@/util/database";
+import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
-  console.log('/pages/api/write.js에서 실행합니다');
+  console.log('/pages/api/edit.js에서 실행합니다');
   console.log(req.body);
 
   if(req.method === 'POST') {
+
+    if(!req.body._id) {
+        return res.status(400).json('게시물 id가 빠졌습니다')
+      }
 
     if(!req.body.title || !req.body.content) {
       return res.status(400).json('필수 항목이 빠졌습니다')
@@ -12,7 +17,7 @@ export default async function handler(req, res) {
 
     const db = (await connectDB).db("board");
     let result = await db.collection('post').
-      insertOne({title: req.body.title, content: req.body.content});
+      updateOne({_id: new ObjectId(req.body._id)}, {$set: {title: req.body.title, content: req.body.content}});
     console.log(result);
 
     if(result) {
