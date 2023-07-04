@@ -1,5 +1,7 @@
 import { connectDB } from "@/util/database";
-import Link from "next/link";
+import ListItem from "./listitem";
+
+export const dynamic = 'force-dynamic';
 
 export default async function List() {
 
@@ -7,23 +9,15 @@ export default async function List() {
 
   const db = (await connectDB).db("board");
   let result = await db.collection('post').find().toArray();
+  result = result.map((e)=>{
+    e._id = e._id.toString()
+    return e
+  })
   console.log(result);
     
   return (
     <div className="list-bg">
-      { 
-        result.map((e,i) => {
-          return (
-            <div className="list-item" key={i}>
-              <Link href={`./detail/${e._id}`}>
-                <h4>{e.title}</h4>
-              </Link>
-              <Link href={`./edit/${e._id}`}>✏️</Link>
-              <p>1월 1일</p>
-            </div>
-          )
-        })
-      }
+      <ListItem result={result} />
     </div>
   )
 } 
