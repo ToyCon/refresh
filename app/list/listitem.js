@@ -16,7 +16,7 @@ export default function ListItem({ result }){
               <span onClick={(ele)=>{
                 fetch('api/delete', {
                   method : 'POST',
-                  body: JSON.stringify({_id:e._id})
+                  body: JSON.stringify({_id:e._id, author:e.author})
                 })
                 .then(()=>{
                   ele.target.parentElement.style.opacity = 0;
