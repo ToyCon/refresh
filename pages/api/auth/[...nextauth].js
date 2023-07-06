@@ -53,6 +53,7 @@ export const authOptions = {
         token.user = {};
         token.user.name = user.name
         token.user.email = user.email
+        token.user.role = user.role
       }
       return token;
     },
@@ -63,7 +64,7 @@ export const authOptions = {
     },
   },
   
-  secret : 'qaz2ws',
+  secret : process.env.NEXTAUTH_SECRET,
   adapter : MongoDBAdapter(connectDB)
 };
 export default NextAuth(authOptions); 
