@@ -1,5 +1,6 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
+import Comment from './Comment'
 
 export default async function Detail(props) {
   
@@ -13,6 +14,7 @@ export default async function Detail(props) {
     <div>
       <h4>{result.title}</h4>
       <p>{result.content}</p>
+      <Comment postId={ props.params.postId }/>
     </div>
   )
 }

@@ -18,7 +18,8 @@ export default function ListItem({ result }){
                   method : 'POST',
                   body: JSON.stringify({_id:e._id, author:e.author})
                 })
-                .then(()=>{
+                .then((res)=>{
+                  console.log(res);
                   ele.target.parentElement.style.opacity = 0;
                   setTimeout(() => {ele.target.parentElement.style.display = 'none';}, 1000);
                 })
