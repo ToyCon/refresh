@@ -1,6 +1,5 @@
 'use client'
 
-import getKST from "@/app/getKST";
 import { useEffect, useState } from "react"
 
 export default function Comment({ postId }) {
@@ -12,9 +11,6 @@ export default function Comment({ postId }) {
     .then((res)=> { return res.json(); })
     .then((res) => { 
       console.log(res);
-      res.forEach(e => {
-        e.time = getKST(e._id)
-      })
       setAllComments([...res]); 
     }).catch((err) => console.log(err))
   },[])
@@ -27,7 +23,6 @@ export default function Comment({ postId }) {
           <div key={i}>
             <p>{ ele.comment }</p>
             <p>{ ele.name }</p>
-            <p>{ ele.time.getDate() }</p>
           </div> )
         : <div>댓글이 없습니다</div>
       }
