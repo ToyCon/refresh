@@ -14,7 +14,7 @@ export default function ListItem({ result }){
               </Link>
               <Link href={`./edit/${e._id}`}>✏️</Link>
               <span onClick={(ele)=>{
-                fetch('api/delete', {
+                fetch('api/post/delete', {
                   method : 'POST',
                   body: JSON.stringify({_id:e._id, author:e.author})
                 })

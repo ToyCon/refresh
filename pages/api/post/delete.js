@@ -1,10 +1,10 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./auth/[...nextauth]";
+import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(req, res) {
-  console.log('/pages/api/delete.js에서 실행합니다');
+  console.log('/pages/api/post/delete.js에서 실행합니다');
   console.log(req.body);
 
   let session = await getServerSession(req, res, authOptions);

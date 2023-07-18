@@ -2,7 +2,7 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
-  console.log('/pages/api/edit.js에서 실행합니다');
+  console.log('/pages/api/post/edit.js에서 실행합니다');
   console.log(req.body);
 
   if(req.method === 'POST') {
