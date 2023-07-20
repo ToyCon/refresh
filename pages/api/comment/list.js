@@ -2,8 +2,8 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
-  console.log('/pages/api/comment/list.js에서 실행합니다');
-  console.log(req.query);
+  // console.log('/pages/api/comment/list.js에서 실행합니다');
+  // console.log(req.query);
 
   if(!req.query.postId) {
     return res.status(400).json('post id가 없습니다')
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     const db = (await connectDB).db("board");
     let result = await db.collection("comment")
       .find({ postId: new ObjectId(req.query.postId) }).toArray();
-    console.log(result);
+    // console.log(result);
 
     if(result.length === 0) {
       return res.status(200).json('댓글이 없습니다');

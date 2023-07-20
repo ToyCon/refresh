@@ -4,11 +4,11 @@ import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(req, res) {
   console.log('/pages/api/post/write.js에서 실행합니다');
-  console.log(req.body);
+  // console.log(req.body);
 
   let session = await getServerSession(req, res, authOptions);
-  console.log('로그인 여부를 확인합니다');
-  console.log(session);
+  // console.log('로그인 여부를 확인합니다');
+  // console.log(session);
 
   if(!session){
     return res.status(400).json('로그인해주세요')
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     
     const db = (await connectDB).db("board");
     let result = await db.collection('post').
-      insertOne({title: req.body.title, content: req.body.content, author: session.user.email});
+      insertOne({title: req.body.title, content: req.body.content, author: session.user.email, postTime: (new Date()).toString(), deleteCheck: 0});
     console.log(result);
 
     if(result.acknowledged) {

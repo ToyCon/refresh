@@ -3,6 +3,7 @@
 import Link from "next/link"
 
 export default function ListItem({ result }){
+  // console.log(result);
   return(
     <div>
       { 
@@ -14,15 +15,17 @@ export default function ListItem({ result }){
               </Link>
               <Link href={`./edit/${e._id}`}>✏️</Link>
               <span onClick={(ele)=>{
-                fetch('api/post/delete', {
+                fetch('/api/post/delete', {
                   method : 'POST',
                   body: JSON.stringify({_id:e._id, author:e.author})
                 })
+                .then((res)=>{return res.json()})
                 .then((res)=>{
-                  console.log(res);
-                  ele.target.parentElement.style.opacity = 0;
+                  if(res.acknowledged) {
+                    ele.target.parentElement.style.opacity = 0;
                   setTimeout(() => {ele.target.parentElement.style.display = 'none';}, 1000);
-                })
+                  }
+                }).catch((err)=>{console.log(err)})
                 }}>🗑️</span>
               <p>1월 1일</p>
             </div>

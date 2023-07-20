@@ -2,11 +2,11 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 export default async function Edit(props) {
-  console.log('/app/edit/[postId]/page.js');
-  console.log(props);
+  // console.log('/app/edit/[postId]/page.js');
+  // console.log(props);
   const db = (await connectDB).db("board");
   let result = await db.collection('post').findOne({_id: new ObjectId(props.params.postId)});
-  console.log(result);
+  // console.log(result);
   
   return (
     <div className="p-20">
