@@ -11,13 +11,13 @@ export default function Comment({ postId }) {
     fetch(`/api/comment/list?postId=${postId}`, { method: 'GET'})
     .then((res)=> { return res.json(); })
     .then((res) => { 
-      // console.log(res);
-      setAllComments([...res]); 
+      if(Array.isArray(res)) { setAllComments([...res]); }
     }).catch((err) => console.log(err))
   },[checkNewComment])
 
   return (
     <div>
+      <hr />
       {
         allComments.length > 0 ?
           allComments.map((ele, i) => 
