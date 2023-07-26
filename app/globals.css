@@ -32,6 +32,20 @@ body {
   padding: 20px;
 }
 
+.title-input {
+  width: 900px;
+}
+
+.content-input {
+  width: 900px;
+  height: 500px;
+}
+
+.comment-input {
+  width: 900px;
+  height: 80px;
+}
+
 input {
   box-sizing: border-box;
   padding: 10px;

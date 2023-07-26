@@ -43,9 +43,9 @@ export default async function RootLayout({ children }) {
           <Link href='/list'>List</Link>
           { session ? <span><span>{ session.user.name }</span><span>&nbsp;&nbsp;&nbsp;</span><LogoutBtn /></span>: <LoginBtn />}
           <span>&nbsp;&nbsp;&nbsp;</span>
-          {checkDarkMode.value === 'light' ? <DarkBtn /> : <LightBtn />}
+          { checkDarkMode.value === 'light' ? <DarkBtn /> : <LightBtn /> }
         </div>
-        {children}
+        { children }
       </body>
     </html>
   )
